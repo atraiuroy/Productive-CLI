@@ -1,131 +1,93 @@
 # Productive-CLI
 The PyTasker project is a command-line To-Do List application built in Python. It allows users to manage daily tasks by adding, viewing, marking complete, and deleting items. The application demonstrates core programming concepts like functions, lists, and control flow, with persistent data storage achieved via local file I/O.
- PyTasker: Command-Line To-Do List Application
-
- Project Title
-
-PyTasker: Command-Line To-Do List Application
-
- Overview of the Project
-
-PyTasker is a lightweight, menu-driven To-Do List application developed in pure Python for a first-semester programming project. It addresses the real-world need for a simple, non-web-based tool to manage daily tasks.
-
-The application demonstrates core programming concepts, including functions for modular design, list data structures, and persistent storage using basic file input/output (I/O). All task data is saved locally to a file named todo.txt.
+This is a simple command-line To-Do List application written in Python. It allows users to add, view, and delete tasks in a persistent list (for the duration of the program's execution).
 
  Features
+Add Task: Easily append a new task to your list.
 
-PyTasker provides a full set of management operations for tasks:
+View Tasks: Display all current tasks with numbered indices.
 
-View Tasks (Read): Displays all current tasks with an index number and a completion status ( Complete or  Pending).
+Delete Task: Remove a task by its numbered index.
 
-Add New Task (Create): Prompts the user for a task description and adds it to the list.
+Menu-Driven: Simple interactive console interface.
 
-Mark as Complete (Update): Allows the user to input a task number to toggle its status to complete.
+ How to Run
+Save the Code: Save the provided Python code into a file named, for example, todo_list.py.
 
-Delete Task (Delete): Removes a task permanently from the list and the storage file.
+Run from Terminal: Open your terminal or command prompt and run the script using the Python interpreter:
 
-Persistent Storage: Automatically loads tasks on startup and saves changes to todo.txt, ensuring data is kept between sessions.
-
-Input Validation: Includes basic error handling for non-numeric or out-of-range user inputs when managing tasks.
-
- Technologies/Tools Used
-
-Category
-
-Tool / Concept
-
-Application in Project
-
-Language
-
-Python 3.x
-
-All core logic and implementation.
-
-Data Structure
-
-Python List of Dictionaries
-
-Used to store tasks in memory: [{'task': '...', 'completed': True/False}, ...]
-
-Storage
-
-File I/O (.txt file)
-
-Used the built-in open(), read(), and write() functions to save and load data from todo.txt.
-
-Modular Design
-
-Functions
-
-The code is organized using dedicated functions (load_tasks, add_task, main) following Top-Down Design principles.
-
- Steps to Install & Run the Project
-
-Since this is a Python-only command-line application, installation is simple.
-
-Clone the Repository (or download the file):
-
-git clone [Your-GitHub-Repository-URL]
-cd [Your-Project-Directory]
-
-
-Ensure Python is Installed:
-Verify you have Python 3.x installed on your system.
-
-python --version
-# or
-python3 --version
-
-
-Run the Application:
-Execute the main script from your terminal:
+Bash
 
 python todo_list.py
-# or
-python3 todo_list.py
+Use the Menu: The program will present a menu. Enter the corresponding number (1, 2, 3, or 4) to select an option.
 
+ Code Structure
+The application is structured around a few key components:
 
- Instructions for Testing
+tasks List:
 
-To ensure the project is working correctly, follow these test steps:
+An empty list initialized at the start (tasks = []) which stores all the to-do items as strings. This list acts as the program's data storage.
 
-Test Case
+display_menu() Function:
 
-Steps
+A function responsible for printing the interactive menu options (Add, View, Delete, Exit) to the console.
 
-Expected Outcome
+Main while Loop:
 
-Add & View
+The core of the application. It runs continuously (while True) until the user selects the 'Exit' option.
 
-Run the app, select 2. Add New Task. Add "Buy milk". Then select 1. View To-Do List.
+It calls display_menu(), takes user input (choice), and then executes the corresponding logic using if/elif/else blocks.
 
-The task "Buy milk" should appear as number 1 with a  status.
+Option Logic:
 
-Mark Complete
+Choice '1' (Add Task): Prompts the user for a task string and uses tasks.append() to add it.
 
-Select 3. Mark Task as Complete. Enter the index 1. Then select 1. View To-Do List.
+Choice '2' (View Tasks): Checks if the list is empty. If not, it uses enumerate() to iterate through the list and print each task with a 1-based index.
 
-The task "Buy milk" should now show a status.
+Choice '3' (Delete Task):
 
-Persistence
+First, displays the tasks (similar to Choice '2').
 
-Add a few tasks, mark one complete. Select 5. Exit Application. Rerun the script.
+Prompts the user for the task number.
 
-All tasks and their statuses should be correctly re-loaded from todo.txt.
+Uses a try-except block to handle potential ValueError if the user enters non-numeric input.
 
-Delete Task
+Converts the 1-based index to a 0-based list index (- 1).
 
-Select 4. Delete Task. Enter the index of any task.
+Checks if the index is valid (0 <= task_index < len(tasks)).
 
-The task should be immediately removed from the displayed list.
+If valid, uses tasks.pop(task_index) to remove the task and prints a confirmation.
 
-Invalid Input
+Choice '4' (Exit): Prints a farewell message and uses break to exit the while True loop, terminating the program.
 
-When prompted for a task number (options 3 or 4), enter text like "abc" or a number outside the range (e.g., 99).
+ Example Usage
+--- To-Do List Menu ---
+1. Add Task
+2. View Tasks
+3. Delete Task
+4. Exit
+-----------------------
+Enter your choice: 1
+Enter the task: Buy groceries
+Task 'Buy groceries' added.
 
-The program should display an error message ( Error: Invalid task number. or Error: Please enter a valid number.) and return to the main menu without crashing.
+--- To-Do List Menu ---
+1. Add Task
+2. View Tasks
+3. Delete Task
+4. Exit
+-----------------------
+Enter your choice: 2
 
- Screenshots (Optional but Recommended)
+--- Your Tasks ---
+1. Buy groceries
+------------------
 
-(Students should place relevant screen captures here after running the program. E.g., showing the main menu, the list of tasks, and the final exit message.)
+--- To-Do List Menu ---
+1. Add Task
+2. View Tasks
+3. Delete Task
+4. Exit
+-----------------------
+Enter your choice: 4
+Exiting To-Do List. Goodbye!
