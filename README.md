@@ -1,36 +1,30 @@
-# Productive-CLI
-The PyTasker project is a command-line To-Do List application built in Python. It allows users to manage daily tasks by adding, viewing, marking complete, and deleting items. The application demonstrates core programming concepts like functions, lists, and control flow, with persistent data storage achieved via local file I/O.
-This is a simple command-line To-Do List application written in Python. It allows users to add, view, and delete tasks in a persistent list (for the duration of the program's execution).
+The PyTasker project is a text-based command-line To-Do List application written in Python. It allows users to manage daily tasks by adding, viewing, marking complete, and deleting items. The application applies core programming concepts such as functions, lists, control flow, and data persistence via local file I/O. This is a simple command-line To-Do List application written in Python. It allows users to add, view, and delete tasks in a persistent list for the duration of its execution.
 
- Features
-Add Task: Easily append a new task to your list.
+Features Add Task: Add a new task to your list.
 
-View Tasks: Display all current tasks with numbered indices.
+View Tasks: Shows all the current tasks with numbered indices.
 
-Delete Task: Remove a task by its numbered index.
+Task Deletion: Remove a task by its numbered index.
 
 Menu-Driven: Simple interactive console interface.
 
- How to Run
-Save the Code: Save the provided Python code into a file named, for example, todo_list.py.
+Save the Code: Save the following Python code into a file called for instance todo_list.py.
 
-Run from Terminal: Open your terminal or command prompt and run the script using the Python interpreter:
+Run from Terminal: Open a terminal or command prompt and execute the script using the Python interpreter:
 
 Bash
 
-python todo_list.py
-Use the Menu: The program will present a menu. Enter the corresponding number (1, 2, 3, or 4) to select an option.
+python todo_list.py Usage via Menu: This program will display a menu. Type 1, 2, 3, or 4 to choose an action.
 
- Code Structure
-The application is structured around a few key components:
+Structure of Code The application centers around a number of key components:
 
 tasks List:
 
-An empty list initialized at the start (tasks = []) which stores all the to-do items as strings. This list acts as the program's data storage.
+An initially empty list to hold all the to-do items as strings; this was initialized at the start, tasks = []. This will provide data storage for the program.
 
 display_menu() Function:
 
-A function responsible for printing the interactive menu options (Add, View, Delete, Exit) to the console.
+This is a method that prints, to the console, the interactive menu options: Add, View, Delete and Exit.
 
 Main while Loop:
 
